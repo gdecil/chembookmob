@@ -1,4 +1,4 @@
-var EmployeeListView = function () {
+var EmployeeListView = function (server) {
 
     var employees;
     var node;
@@ -11,10 +11,10 @@ var EmployeeListView = function () {
         employees = list;
         this.render();
         $(".media-body p").click(function(){
-        	var service = new EmployeeService();
+        	var service = new EmployeeService(server);
         	node = this.parentElement
             service.findNotebooks(this.innerHTML).done(function(notebooks) {
-            	var notelist = new NotebookListView();
+            	var notelist = new NotebookListView(server);
             	notelist.setNotebooks(node, eval('(' + notebooks + ')'));
             });
 

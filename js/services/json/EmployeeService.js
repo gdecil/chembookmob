@@ -1,7 +1,5 @@
-var EmployeeService = function() {
-
+var EmployeeService = function(server) {
     var url;
-    var server = "http://217.220.17.147:8080";
     
     this.initialize = function() {
         url = server + "/Reaction.asmx/SearchUsers";

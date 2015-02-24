@@ -1,4 +1,4 @@
-var NotebookListView = function () {
+var NotebookListView = function (server) {
 
     var notebooks;
 
@@ -9,7 +9,7 @@ var NotebookListView = function () {
     	notebooks = list;
         this.render(node);
         $("div.media-body.notebook").click(function(){
-        	var service = new EmployeeService();
+        	var service = new EmployeeService(server);
         	node = this
             service.findPages(this.innerText).done(function(pages) {
             	var pagelist = new PageListView();

@@ -4,6 +4,7 @@ ul {
 
 .content {
     position: absolute;
+/*      width: 95%; */
 }
 
 .bar-header-secondary>input {

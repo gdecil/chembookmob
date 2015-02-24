@@ -1,4 +1,4 @@
-var HomeView = function (service) {
+var HomeView = function (service, server) {
 	var employeeListView;
 
     this.initialize = function () {
@@ -6,7 +6,7 @@ var HomeView = function (service) {
         this.$el = $('<div/>');
         this.$el.on('keyup', '.search-key', this.findByName);
                
-        employeeListView = new EmployeeListView();
+        employeeListView = new EmployeeListView(server);
         this.render()
     };
 
