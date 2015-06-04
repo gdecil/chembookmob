@@ -18,6 +18,12 @@
 	else if (server == "http://10.206.84.170"){		//sviluppo da nms
 		server = "http://10.206.84.170:8080"
 	}
+    else if (server.indexOf("http://127.0.0.1") >= 0 ){		//sviluppo da nms con brackets
+        server = "http://localhost:8080"
+    }
+	else if (server == "http://127.0.0.1:54408"){			//sviluppo da casa
+		server = "http://localhost:8080"
+	}
 	else if (server == "http://localhost"){			//sviluppo da casa
 		server = "http://localhost:8080"
 	}
@@ -60,7 +66,7 @@
     	router.addRoute('', function() {
     	      slider.slidePage(new HomeView(service, server).render().$el);
     	      
-    	      $('.content').append("Server: " + server)
+    	      $('.content').append("Server1: " + server1)
 //    	      $('.content').append("Server: " + agent)
     	  });
 
@@ -73,7 +79,9 @@
 //    	          slider.slidePage(new EmployeeView(eval('(' + experiment + ')')).render().$el);
 	    	  var sql = "<img id='noresizable' width='100%' height: '100%' src='" + server  + "/render?idReaction=" + nbs[0].rxn_scheme_key + "'>"
 	    	  $('#imgcont').html(sql)
-	    	  $('#imgcont').append("Server: " + server)
+              var procHtml = "<h2>Procedure</h2>" + nbs[0].procedure
+	    	  $('#procedure').html(procHtml)
+//	    	  $('#procedure').append("Server: " + server)
     	      $( "#resizable" ).resizable();
 	      });
 	  });
